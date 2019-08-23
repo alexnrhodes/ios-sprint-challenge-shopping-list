@@ -24,7 +24,7 @@ class ShoppingListCollectionViewController: UICollectionViewController {
         
     }
 
-   
+  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "" {
             guard let checkoutVC = segue.destination as? CheckoutViewController else {return}

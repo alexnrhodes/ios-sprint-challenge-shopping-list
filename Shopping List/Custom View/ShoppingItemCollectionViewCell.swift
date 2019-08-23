@@ -13,12 +13,15 @@ class ShoppingItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var hasBeenAddedButton: UIButton!
     @IBOutlet weak var itemNameLabel: UILabel!
-
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        //        updateUserDefaultsView()
+    }
     
     var item: Item? {
         didSet {
-            updateUserDefaultsView()
+            //            updateUserDefaultsView()
             setViews()
         }
     }
@@ -32,20 +35,25 @@ class ShoppingItemCollectionViewCell: UICollectionViewCell {
     @IBAction func hasBeenAddedButtonTapped(_ sender: UIButton) {
         let userDefaults = UserDefaults.standard
         userDefaults.set(sender.isSelected, forKey: .changHasBeenAdded)
+        
+        updateUserDefaultsView()
+        
+        
     }
+    
+    
     
     
     // MARK: User defaults
     
     private func updateUserDefaultsView() {
-        
         let userDefaults = UserDefaults.standard
         hasBeenAddedButton.isSelected = userDefaults.bool(forKey: .changHasBeenAdded)
-        
         
         let userDefaultsValue = UserDefaults.standard.bool(forKey: .changHasBeenAdded)
         
         if userDefaultsValue == false {
+            hasBeenAddedButton.layer.masksToBounds = true
             hasBeenAddedButton.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
             hasBeenAddedButton.layer.cornerRadius = 8
             hasBeenAddedButton.setTitleColor(.white, for: .normal)
@@ -55,5 +63,6 @@ class ShoppingItemCollectionViewCell: UICollectionViewCell {
             hasBeenAddedButton.layer.cornerRadius = 8
             hasBeenAddedButton.setTitle("IS IN YOUR CART", for: .selected)
             hasBeenAddedButton.setTitleColor(.white, for: .selected) }
+        
     }
 }
