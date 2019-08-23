@@ -14,14 +14,14 @@ class ShoppingItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var hasBeenAddedButton: UIButton!
     @IBOutlet weak var itemNameLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        //        updateUserDefaultsView()
-    }
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//                updateUserDefaultsView()
+//    }
     
     var item: Item? {
         didSet {
-            //            updateUserDefaultsView()
+//        updateUserDefaultsView()
             setViews()
         }
     }
@@ -30,6 +30,15 @@ class ShoppingItemCollectionViewCell: UICollectionViewCell {
         guard let item = item else {return}
         imageView.image = item.image
         itemNameLabel.text = item.name
+        
+        
+        
+        hasBeenAddedButton.layer.masksToBounds = true
+        hasBeenAddedButton.tintColor = #colorLiteral(red: 0.9990584254, green: 0, blue: 0.3153140545, alpha: 1)
+        hasBeenAddedButton.backgroundColor = #colorLiteral(red: 0.9990584254, green: 0, blue: 0.3153140545, alpha: 1)
+        hasBeenAddedButton.layer.cornerRadius = 8
+        hasBeenAddedButton.setTitleColor(.white, for: .normal)
+        hasBeenAddedButton.setTitle("ADD ITEM", for: .normal)
     }
     
     @IBAction func hasBeenAddedButtonTapped(_ sender: UIButton) {
@@ -54,12 +63,15 @@ class ShoppingItemCollectionViewCell: UICollectionViewCell {
         
         if userDefaultsValue == false {
             hasBeenAddedButton.layer.masksToBounds = true
-            hasBeenAddedButton.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+            hasBeenAddedButton.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0.3141315877, alpha: 1)
+            hasBeenAddedButton.tintColor = #colorLiteral(red: 0.9990584254, green: 0, blue: 0.3153140545, alpha: 1)
             hasBeenAddedButton.layer.cornerRadius = 8
             hasBeenAddedButton.setTitleColor(.white, for: .normal)
             hasBeenAddedButton.setTitle("ADD ITEM", for: .normal)
         } else {
+            hasBeenAddedButton.layer.masksToBounds = true
             hasBeenAddedButton.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            hasBeenAddedButton.tintColor = #colorLiteral(red: 0.2553634048, green: 0.2747430503, blue: 0.3004937768, alpha: 1)
             hasBeenAddedButton.layer.cornerRadius = 8
             hasBeenAddedButton.setTitle("IS IN YOUR CART", for: .selected)
             hasBeenAddedButton.setTitleColor(.white, for: .selected) }

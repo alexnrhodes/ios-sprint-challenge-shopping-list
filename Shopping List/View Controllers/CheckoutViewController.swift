@@ -11,7 +11,8 @@ import UIKit
 class CheckoutViewController: UIViewController {
     
     var itemController: ItemController?
-
+    var item: Item?
+    
     @IBOutlet weak var itemsInCartLabel: UILabel!
     @IBOutlet weak var customerNameTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
@@ -20,13 +21,22 @@ class CheckoutViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-   
+        setViews()
     }
     
     func setViews() {
-        guard let items = itemController?.items else {return}
-        itemsInCartLabel.text = "You currently have \(items) in your cart."
-    
+        let userDefaults = UserDefaults.standard.bool(forKey: .changHasBeenAdded)
+        
+        guard let itemController = itemController else {return}
+        var itemCount = 0
+        for item in itemController.items {
+        if userDefaults == true {
+            itemCount += 1
+        }
+        }
+        
+        itemsInCartLabel.text = "You currently have \(itemCount) item(s) in your cart."
+        
     }
     
     @IBAction func checkoutButtonTapped(_ sender: UIButton) {

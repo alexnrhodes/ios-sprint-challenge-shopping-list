@@ -21,7 +21,7 @@ class ShoppingListCollectionViewController: UICollectionViewController {
     }
     
     func setViews() {
-        
+        let userDefaults = UserDefaults.standard
     }
 
   
