@@ -10,7 +10,13 @@ import Foundation
 
 class ItemController {
     
-    var items: [Item] = []
+    var items: [Item] = [Item(name: "APPLES", image: #imageLiteral(resourceName: "Apple")),
+    Item(name: "GRAPES", image: #imageLiteral(resourceName: "Grapes")),
+    Item(name: "MUFFINS", image: #imageLiteral(resourceName: "Muffin")),
+    Item(name: "POP", image: #imageLiteral(resourceName: "Soda")),
+    Item(name: "POPCORN", image: #imageLiteral(resourceName: "Popcorn")),
+    Item(name: "MILK", image: #imageLiteral(resourceName: "Milk")),
+    Item(name: "STRAWBERRIES", image: #imageLiteral(resourceName: "Strawberries"))]
     
-    
+  
 }
