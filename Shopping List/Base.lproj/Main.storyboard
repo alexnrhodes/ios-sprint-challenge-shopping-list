@@ -47,15 +47,14 @@
                                                 <constraint firstAttribute="bottom" secondItem="LEX-13-Acx" secondAttribute="bottom" id="y4a-0z-Rwj"/>
                                             </constraints>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9K-Tq-CEI">
-                                            <rect key="frame" x="0.0" y="190" width="180" height="30"/>
-                                            <state key="normal" title="Button"/>
-                                            <connections>
-                                                <action selector="hasBeenAddedButtonTapped:" destination="WzL-h4-FmS" eventType="touchUpInside" id="IZa-cR-jhs"/>
-                                            </connections>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXk-0j-v89">
                                             <rect key="frame" x="69" y="161" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muH-bN-fwh">
+                                            <rect key="frame" x="69" y="190" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -63,18 +62,20 @@
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="muH-bN-fwh" secondAttribute="trailing" constant="69" id="9xo-pE-PdQ"/>
                                     <constraint firstItem="ft1-Lj-3hY" firstAttribute="leading" secondItem="WzL-h4-FmS" secondAttribute="leading" id="Hjw-i9-EKH"/>
                                     <constraint firstItem="ft1-Lj-3hY" firstAttribute="top" secondItem="WzL-h4-FmS" secondAttribute="top" id="IUB-sS-A2k"/>
-                                    <constraint firstItem="u9K-Tq-CEI" firstAttribute="leading" secondItem="ft1-Lj-3hY" secondAttribute="leading" id="IgV-KJ-sIA"/>
                                     <constraint firstAttribute="trailing" secondItem="ft1-Lj-3hY" secondAttribute="trailing" id="L6o-2A-1hs"/>
-                                    <constraint firstItem="u9K-Tq-CEI" firstAttribute="top" secondItem="PXk-0j-v89" secondAttribute="bottom" constant="8" id="QRD-Nv-D2h"/>
-                                    <constraint firstItem="u9K-Tq-CEI" firstAttribute="trailing" secondItem="ft1-Lj-3hY" secondAttribute="trailing" id="i2w-j6-dFG"/>
-                                    <constraint firstAttribute="bottom" secondItem="u9K-Tq-CEI" secondAttribute="bottom" id="vE4-a2-kbg"/>
+                                    <constraint firstItem="muH-bN-fwh" firstAttribute="top" secondItem="PXk-0j-v89" secondAttribute="bottom" constant="8" id="M9j-lv-fYi"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="muH-bN-fwh" secondAttribute="bottom" constant="1" id="YAj-aA-Nfa"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PXk-0j-v89" secondAttribute="trailing" symbolic="YES" id="e8P-AW-JBv"/>
+                                    <constraint firstItem="muH-bN-fwh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WzL-h4-FmS" secondAttribute="leadingMargin" id="mCH-9c-5Qg"/>
+                                    <constraint firstItem="muH-bN-fwh" firstAttribute="top" secondItem="PXk-0j-v89" secondAttribute="bottom" constant="8" id="vEZ-Td-HeQ"/>
                                     <constraint firstItem="PXk-0j-v89" firstAttribute="top" secondItem="ft1-Lj-3hY" secondAttribute="bottom" constant="8" id="vLc-dE-uDQ"/>
-                                    <constraint firstItem="PXk-0j-v89" firstAttribute="centerX" secondItem="u9K-Tq-CEI" secondAttribute="centerX" id="wY0-mI-3XL"/>
+                                    <constraint firstItem="PXk-0j-v89" firstAttribute="leading" secondItem="muH-bN-fwh" secondAttribute="leading" id="xIG-43-paJ"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="hasBeenAddedButton" destination="u9K-Tq-CEI" id="eut-vc-Cnp"/>
+                                    <outlet property="hasBeenAddedLabel" destination="muH-bN-fwh" id="pWl-4C-Phf"/>
                                     <outlet property="imageView" destination="LEX-13-Acx" id="F4w-EQ-J1I"/>
                                     <outlet property="itemNameLabel" destination="PXk-0j-v89" id="MnV-0y-wxE"/>
                                 </connections>
@@ -88,7 +89,7 @@
                     <navigationItem key="navigationItem" title="Shopping List" id="tAG-5g-9x4">
                         <barButtonItem key="rightBarButtonItem" title="Checkout" id="reJ-iK-6mz">
                             <connections>
-                                <segue destination="OIJ-rK-V9Z" kind="show" id="89a-2s-aWf"/>
+                                <segue destination="OIJ-rK-V9Z" kind="show" identifier="CheckoutSegue" id="89a-2s-aWf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

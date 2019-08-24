@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-struct Item {
+class Item: Codable {
     var name: String
-    var image: UIImage
     var hasBeenAdded: Bool
     
-    init(name: String, image: UIImage, hasBeenAdded: Bool = false) {
+    init(name: String, hasBeenAdded: Bool = false) {
         self.name = name
-        self.image = image
         self.hasBeenAdded = hasBeenAdded
     }
 }
+
+

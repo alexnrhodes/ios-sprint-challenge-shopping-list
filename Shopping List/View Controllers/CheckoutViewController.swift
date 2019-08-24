@@ -25,14 +25,14 @@ class CheckoutViewController: UIViewController {
     }
     
     func setViews() {
-        let userDefaults = UserDefaults.standard.bool(forKey: .changHasBeenAdded)
         
         guard let itemController = itemController else {return}
+        let items = itemController.items
         var itemCount = 0
-        for item in itemController.items {
-        if userDefaults == true {
-            itemCount += 1
-        }
+        for item in items {
+            if item.hasBeenAdded == true {
+                itemCount += 1
+            }
         }
         
         itemsInCartLabel.text = "You currently have \(itemCount) item(s) in your cart."
